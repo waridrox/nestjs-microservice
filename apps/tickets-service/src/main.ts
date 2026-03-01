@@ -15,9 +15,9 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(SERVICES_PORTS.TICKETS_SERVICE);
+  await app.listen(process.env.PORT || SERVICES_PORTS.TICKETS_SERVICE);
   console.log(
-    `Tickets Service is running on port ${SERVICES_PORTS.TICKETS_SERVICE}`,
+    `Tickets Service is running on port ${process.env.PORT || SERVICES_PORTS.TICKETS_SERVICE}`,
   );
 }
 bootstrap();

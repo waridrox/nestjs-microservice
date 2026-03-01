@@ -15,9 +15,9 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(SERVICES_PORTS.EVENTS_SERVICE);
+  await app.listen(process.env.PORT || SERVICES_PORTS.EVENTS_SERVICE);
   console.log(
-    `Events Service is running on port ${SERVICES_PORTS.EVENTS_SERVICE}`,
+    `Events Service is running on port ${process.env.PORT || SERVICES_PORTS.EVENTS_SERVICE}`,
   );
 }
 bootstrap();
