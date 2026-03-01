@@ -15,7 +15,7 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(SERVICES_PORTS.AUTH_SERVICE);
-  console.log(`Auth Service is running on port ${SERVICES_PORTS.AUTH_SERVICE}`);
+  await app.listen(process.env.PORT || SERVICES_PORTS.AUTH_SERVICE);
+  console.log(`Auth Service is running on port ${process.env.PORT || SERVICES_PORTS.AUTH_SERVICE}`);
 }
 bootstrap();

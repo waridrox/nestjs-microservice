@@ -12,9 +12,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['http://localhost:4000', 'https://mytrusteddomain.com'].filter(
-      Boolean,
-    ),
+    origin: (process.env.ALLOWED_ORIGINS || 'http://localhost:4000')
+      .split(',')
+      .map((o) => o.trim())
+      .filter((o) => o.length > 0),
     credentials: true,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
