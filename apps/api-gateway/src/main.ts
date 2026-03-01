@@ -9,6 +9,8 @@ import {
 } from '@app/common';
 
 async function bootstrap() {
+  console.log('REDIS_URL:', process.env.REDIS_URL ? 'SET' : 'NOT SET');
+  console.log('REDIS_HOST:', process.env.REDIS_HOST ? 'SET' : 'NOT SET');
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
